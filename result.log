@@ -1,0 +1,103 @@
+=== RUN   TestParameters
+    main_test.go:22: Node Count: 10, Difficulty: 0.000100. Block Speed 968.880000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.000500. Block Speed 206.761000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.001000. Block Speed 102.275000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.005000. Block Speed 21.115000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.010000. Block Speed 11.531000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.020000. Block Speed 6.519000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.050000. Block Speed 3.045000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.100000. Block Speed 2.074000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.200000. Block Speed 1.377000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.250000. Block Speed 1.245000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.300000. Block Speed 1.148000 ticks/block
+    main_test.go:22: Node Count: 10, Difficulty: 0.500000. Block Speed 1.006000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.000100. Block Speed 206.231000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.000500. Block Speed 40.833000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.001000. Block Speed 21.944000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.005000. Block Speed 5.293000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.010000. Block Speed 3.253000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.020000. Block Speed 2.106000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.050000. Block Speed 1.319000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.100000. Block Speed 1.044000 ticks/block
+    main_test.go:22: Node Count: 50, Difficulty: 0.200000. Block Speed 1.000000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.000100. Block Speed 102.201000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.000500. Block Speed 21.927000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.001000. Block Speed 12.083000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.005000. Block Speed 3.124000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.010000. Block Speed 2.177000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.020000. Block Speed 1.513000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.050000. Block Speed 1.043000 ticks/block
+    main_test.go:22: Node Count: 100, Difficulty: 0.100000. Block Speed 1.000000 ticks/block
+    main_test.go:22: Node Count: 200, Difficulty: 0.000100. Block Speed 51.333000 ticks/block
+    main_test.go:22: Node Count: 200, Difficulty: 0.000500. Block Speed 11.440000 ticks/block
+    main_test.go:22: Node Count: 200, Difficulty: 0.001000. Block Speed 6.215000 ticks/block
+    main_test.go:22: Node Count: 200, Difficulty: 0.005000. Block Speed 2.065000 ticks/block
+    main_test.go:22: Node Count: 200, Difficulty: 0.010000. Block Speed 1.475000 ticks/block
+    main_test.go:22: Node Count: 200, Difficulty: 0.020000. Block Speed 1.114000 ticks/block
+    main_test.go:22: Node Count: 200, Difficulty: 0.050000. Block Speed 1.000000 ticks/block
+    main_test.go:22: Node Count: 500, Difficulty: 0.000100. Block Speed 21.692000 ticks/block
+    main_test.go:22: Node Count: 500, Difficulty: 0.000500. Block Speed 5.704000 ticks/block
+    main_test.go:22: Node Count: 500, Difficulty: 0.001000. Block Speed 3.247000 ticks/block
+    main_test.go:22: Node Count: 500, Difficulty: 0.005000. Block Speed 1.336000 ticks/block
+    main_test.go:22: Node Count: 500, Difficulty: 0.010000. Block Speed 1.036000 ticks/block
+    main_test.go:22: Node Count: 500, Difficulty: 0.020000. Block Speed 1.000000 ticks/block
+    main_test.go:22: Node Count: 1000, Difficulty: 0.000100. Block Speed 11.613000 ticks/block
+    main_test.go:22: Node Count: 1000, Difficulty: 0.000500. Block Speed 3.321000 ticks/block
+    main_test.go:22: Node Count: 1000, Difficulty: 0.001000. Block Speed 2.137000 ticks/block
+    main_test.go:22: Node Count: 1000, Difficulty: 0.005000. Block Speed 1.056000 ticks/block
+    main_test.go:22: Node Count: 1000, Difficulty: 0.010000. Block Speed 1.000000 ticks/block
+--- PASS: TestParameters (1.65s)
+PASS
+ok  	github.com/stellashiina/pow-simulator	1.868s
+?   	github.com/stellashiina/pow-simulator/config	[no test files]
+?   	github.com/stellashiina/pow-simulator/core	[no test files]
+=== RUN   TestForkATKVar1
+    fork_attack_test.go:14: Current parameters, Difficulty: 0.001000, Node Count: 100
+[MaliciousRate 0.400000] Fork success rate 0.298300
+[MaliciousRate 0.300000] Fork success rate 0.082300
+[MaliciousRate 0.200000] Fork success rate 0.011000
+[MaliciousRate 0.100000] Fork success rate 0.000300
+--- PASS: TestForkATKVar1 (10.34s)
+=== RUN   TestForkATKVar2
+    fork_attack_test.go:24: Current parameters, Difficulty: 0.001000, Node Count: 50
+[MaliciousRate 0.400000] Fork success rate 0.268400
+[MaliciousRate 0.300000] Fork success rate 0.075200
+[MaliciousRate 0.200000] Fork success rate 0.007700
+[MaliciousRate 0.100000] Fork success rate 0.000300
+--- PASS: TestForkATKVar2 (8.16s)
+=== RUN   TestForkATKVar3
+    fork_attack_test.go:34: Current parameters, Difficulty: 0.000500, Node Count: 100
+[MaliciousRate 0.400000] Fork success rate 0.271300
+[MaliciousRate 0.300000] Fork success rate 0.075600
+[MaliciousRate 0.200000] Fork success rate 0.007800
+[MaliciousRate 0.100000] Fork success rate 0.000000
+--- PASS: TestForkATKVar3 (15.73s)
+=== RUN   TestSelfishVar1
+    selfish_mining_test.go:14: Current parameters, Difficulty: 0.001000, Node Count: 100
+[MaliciousRate 0.400000] Profitability 0.550945
+[MaliciousRate 0.300000] Profitability 0.240290
+[MaliciousRate 0.200000] Profitability 0.103534
+[MaliciousRate 0.100000] Profitability 0.036417
+--- PASS: TestSelfishVar1 (49.10s)
+=== RUN   TestSelfishVar2
+    selfish_mining_test.go:24: Current parameters, Difficulty: 0.001000, Node Count: 50
+[MaliciousRate 0.400000] Profitability 0.496300
+[MaliciousRate 0.300000] Profitability 0.222360
+[MaliciousRate 0.200000] Profitability 0.097537
+[MaliciousRate 0.100000] Profitability 0.034672
+--- PASS: TestSelfishVar2 (34.09s)
+=== RUN   TestSelfishVar3
+    selfish_mining_test.go:34: Current parameters, Difficulty: 0.000500, Node Count: 100
+[MaliciousRate 0.400000] Profitability 0.497569
+[MaliciousRate 0.300000] Profitability 0.225706
+[MaliciousRate 0.200000] Profitability 0.097984
+[MaliciousRate 0.100000] Profitability 0.035022
+--- PASS: TestSelfishVar3 (62.86s)
+PASS
+ok  	github.com/stellashiina/pow-simulator/exp	180.496s
+?   	github.com/stellashiina/pow-simulator/network	[no test files]
+=== RUN   TestNode
+--- PASS: TestNode (0.00s)
+PASS
+ok  	github.com/stellashiina/pow-simulator/node	(cached)
+?   	github.com/stellashiina/pow-simulator/simulator	[no test files]
