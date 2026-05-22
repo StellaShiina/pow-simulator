@@ -10,15 +10,6 @@ import (
 func TestNode(t *testing.T) {
 	genesis := core.NewGenesis()
 	n := node.NewNode(0, genesis)
-	// for {
-	// 	if blk := n.Mine(1); blk != nil {
-	// 		if n.KnownBlocks.Blocks[blk.Hash] != blk {
-	// 			t.Error("KnownBlocks incorrect")
-	// 			t.Fail()
-	// 		}
-	// 		break
-	// 	}
-	// }
 	oldblk, newBlk, newBlk2 := core.NewBlock(genesis, -1, 2), core.NewBlock(n.Tip, n.ID, 2), core.NewBlock(n.Tip, n.ID, 2)
 	n.Receive(genesis)
 	n.Receive(oldblk)

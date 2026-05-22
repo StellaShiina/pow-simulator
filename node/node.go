@@ -82,6 +82,8 @@ func (n *Node) Receive(blk *core.Block) {
 			n.Inbox = append(n.Inbox, blk)
 		}
 	}
+	// Check if the block received not lower than the block in private chain
+	// Move all the blocks not higher than the block in private chain to Release
 	if n.Strategy == Selfish {
 		for len(n.ExpVar.PrivateChain) > 0 && n.ExpVar.PrivateChain[0].Height <= blk.Height {
 			n.ExpVar.Release = append(n.ExpVar.Release, n.ExpVar.PrivateChain[0])
@@ -94,17 +96,13 @@ func (n *Node) Receive(blk *core.Block) {
 // This simulates the out-of-order arrival of information from different nodes in a real network.
 func (n *Node) UpdateTip() {
 	switch n.Strategy {
-	case Honest:
+	case Honest, Selfish:
 		if len(n.Inbox) != 0 {
 			n.Tip = n.Inbox[config.RandSrc.IntN(len(n.Inbox))]
 		}
 		n.Inbox = n.Inbox[:0]
+	// Fork attack will stick on its own tip
 	case Fork:
 		return
-	case Selfish:
-		if len(n.Inbox) != 0 {
-			n.Tip = n.Inbox[config.RandSrc.IntN(len(n.Inbox))]
-		}
-		n.Inbox = n.Inbox[:0]
 	}
 }

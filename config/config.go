@@ -14,6 +14,6 @@ var Target int = 1000
 
 var DelayRange int = 3
 
-var RandSrc = rand.New(rand.NewPCG(42, 42))
+var RandSrc = rand.New(rand.NewPCG(7, 21))
 
 var RandHashSrc = rand.NewChaCha8([32]byte{4, 2})

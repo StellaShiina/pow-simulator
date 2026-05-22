@@ -46,13 +46,11 @@ func (sim *Simulator) Run() *ExpResult {
 				// fmt.Printf("[Tick %d] New Block: Miner=%d, Height=%d\n", sim.Tick, blk.MinerID, blk.Height)
 				if i == 0 && n.Strategy == node.Fork && n.ExpVar.FinishFork {
 					if sim.Tips[0].Height <= 6 {
-						// fmt.Println("Fork attack success!")
 						return &ExpResult{
 							Strategy:    node.Fork,
 							ForkSuccess: true,
 						}
 					} else {
-						// fmt.Println("Fork attack fail")
 						return &ExpResult{
 							Strategy:    node.Fork,
 							ForkSuccess: false,
@@ -70,6 +68,7 @@ func (sim *Simulator) Run() *ExpResult {
 			}
 		}
 		sim.Network.SendPackets(sim.Tick)
+		// Check if the selfish node has blocks to release
 		if sim.Network.Nodes[0].Strategy == node.Selfish {
 			for _, blk := range sim.Network.Nodes[0].ExpVar.Release {
 				// fmt.Printf("[Tick %d] Get Block From Selfish Miner: Miner=%d, Height=%d\n", sim.Tick, blk.MinerID, blk.Height)
@@ -89,6 +88,7 @@ func (sim *Simulator) Run() *ExpResult {
 			n.UpdateTip()
 		}
 		if sim.Tips[0].Height == config.Target {
+			// IF block speed is really high, there may be many blocks remain in privatechain!
 			// for _, blk := range sim.Network.Nodes[0].ExpVar.PrivateChain {
 			// 	if blk.Height > config.Target+1 {
 			// 		break
