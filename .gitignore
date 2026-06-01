@@ -1,0 +1,4 @@
+*.exe
+
+results/*
+!results/*example.log
