@@ -96,6 +96,9 @@ func (sim *Simulator) Run(duration time.Duration) {
 	if err := sim.Bootnode.WriteReport(); err != nil {
 		slog.Error("[Simulator] write report:", "err", err)
 	}
+	if err := sim.Bootnode.WriteJSONReport(); err != nil {
+		slog.Error("[Simulator] write JSON report:", "err", err)
+	}
 
 	sim.Bootnode.Stop()
 

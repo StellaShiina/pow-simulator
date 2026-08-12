@@ -32,7 +32,7 @@ routine/
 │   └── transport.go
 ├── bootnode/         # 引导节点（发现 + 观测 + 拓扑分配）
 │   └── bootnode.go
-├── report/           # 报告生成（链结构 + 连接拓扑）
+├── report/           # 报告生成（可读日志 + JSON 统计）
 │   └── report.go
 ├── simulator/        # 仿真编排器
 │   └── simulator.go
@@ -98,10 +98,13 @@ routine/
 
 ### 报告输出
 
-仿真结束后生成两类报告，写入 `results/` 目录下的日志文件：
+仿真结束后默认同时生成两类结果，写入同一父目录下的不同子目录：
 
-1. **链结构报告**：参数摘要、矿工统计、最长链追溯、分叉分析、DAG 树状图
-2. **连接拓扑报告**：每节点 peer 分配详情、度统计（min/max/avg）、邻接矩阵
+1. `results/log/`：面向阅读的链结构和连接拓扑报告
+2. `results/json/`：面向后续分析的参数、区块 DAG、Tips、矿工统计和 peer 分配
+
+两个目录中的时间戳结果默认不纳入 Git；示例文件为 `results/log/example.log` 和
+`results/json/example.json`。
 
 ## 可调参数
 

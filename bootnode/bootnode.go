@@ -305,6 +305,26 @@ func (bn *Bootnode) WriteReport() error {
 	})
 }
 
+// WriteJSONReport writes a machine-readable snapshot alongside the text report.
+func (bn *Bootnode) WriteJSONReport() error {
+	bn.blockMu.Lock()
+	blocksCopy := maps.Clone(bn.blocks)
+	bn.blockMu.Unlock()
+
+	bn.mu.Lock()
+	assignmentsCopy := make(map[int][]int, len(bn.peerAssignments))
+	for nodeID, peers := range bn.peerAssignments {
+		assignmentsCopy[nodeID] = append([]int(nil), peers...)
+	}
+	bn.mu.Unlock()
+
+	return report.WriteJSONReport(report.Input{
+		StartTime:       bn.startTime,
+		Blocks:          blocksCopy,
+		PeerAssignments: assignmentsCopy,
+	})
+}
+
 // Analyze returns a lightweight chain analysis summary.
 func (bn *Bootnode) Analyze() (*report.ChainSummary, error) {
 	bn.blockMu.Lock()

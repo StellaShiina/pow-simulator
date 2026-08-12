@@ -5,8 +5,11 @@
 package report
 
 import (
+	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"os"
+	"path/filepath"
 	"sort"
 	"strings"
 	"time"
@@ -278,7 +281,10 @@ func WriteChainReport(input Input) error {
 	}
 
 	now := time.Now()
-	filename := fmt.Sprintf("results/%s-%s.log", logFilePrefix, now.Format("20060102-150405"))
+	filename := filepath.Join("results", "log", fmt.Sprintf("%s-%s.log", logFilePrefix, now.Format("20060102-150405.000000000")))
+	if err := os.MkdirAll(filepath.Dir(filename), 0o755); err != nil {
+		return fmt.Errorf("create log directory: %w", err)
+	}
 
 	f, err := os.Create(filename)
 	if err != nil {
@@ -424,6 +430,101 @@ func WriteChainReport(input Input) error {
 	// 追加连接拓扑报告
 	writeConnectionReport(f, input.PeerAssignments, config.NodeCount)
 
+	return nil
+}
+
+// WriteJSONReport writes the same simulation snapshot as machine-readable JSON.
+func WriteJSONReport(input Input) error {
+	analysis, err := analyzeDAG(input.Blocks)
+	if err != nil {
+		return fmt.Errorf("chain analysis: %w", err)
+	}
+
+	type jsonBlock struct {
+		Height  int    `json:"height"`
+		MinerID int    `json:"miner_id"`
+		Hash    string `json:"hash"`
+		PreHash string `json:"pre_hash"`
+	}
+	type jsonPeerAssignment struct {
+		NodeID int   `json:"node_id"`
+		Peers  []int `json:"peers"`
+	}
+	type jsonReport struct {
+		GeneratedAt string               `json:"generated_at"`
+		Parameters  map[string]any       `json:"parameters"`
+		Overview    map[string]any       `json:"overview"`
+		MinerBlocks map[int]int          `json:"miner_blocks"`
+		Blocks      []jsonBlock          `json:"blocks"`
+		Tips        []jsonBlock          `json:"tips"`
+		Peers       []jsonPeerAssignment `json:"peer_assignments"`
+	}
+	fullHash := func(hash [32]byte) string { return hex.EncodeToString(hash[:]) }
+
+	blocks := make([]jsonBlock, 0, len(analysis.blocks))
+	for _, block := range analysis.blocks {
+		blocks = append(blocks, jsonBlock{
+			Height: block.Height, MinerID: block.MinerID,
+			Hash: fullHash(block.Hash), PreHash: fullHash(block.PreHash),
+		})
+	}
+	sort.Slice(blocks, func(i, j int) bool {
+		if blocks[i].Height != blocks[j].Height {
+			return blocks[i].Height < blocks[j].Height
+		}
+		return blocks[i].Hash < blocks[j].Hash
+	})
+
+	tips := make([]jsonBlock, 0, len(analysis.tips))
+	for _, block := range analysis.tips {
+		tips = append(tips, jsonBlock{
+			Height: block.Height, MinerID: block.MinerID,
+			Hash: fullHash(block.Hash), PreHash: fullHash(block.PreHash),
+		})
+	}
+
+	peerIDs := make([]int, 0, len(input.PeerAssignments))
+	for nodeID := range input.PeerAssignments {
+		peerIDs = append(peerIDs, nodeID)
+	}
+	sort.Ints(peerIDs)
+	peers := make([]jsonPeerAssignment, 0, len(peerIDs))
+	for _, nodeID := range peerIDs {
+		assigned := append([]int(nil), input.PeerAssignments[nodeID]...)
+		peers = append(peers, jsonPeerAssignment{NodeID: nodeID, Peers: assigned})
+	}
+
+	elapsed := time.Since(input.StartTime).Seconds()
+	if elapsed <= 0 {
+		elapsed = 1e-9
+	}
+	data := jsonReport{
+		GeneratedAt: time.Now().Format(time.RFC3339Nano),
+		Parameters: map[string]any{
+			"node_count": config.NodeCount, "difficulty": config.Difficulty,
+			"density": config.Density, "target_height": config.TargetHeight, "seed": config.Seed,
+		},
+		Overview: map[string]any{
+			"genesis_hash": fullHash(analysis.genesis.Hash), "total_blocks": analysis.totalBlocks - 1,
+			"total_forks": analysis.totalForks, "longest_height": analysis.longestHeight,
+			"active_tips": len(analysis.tips), "elapsed_seconds": elapsed,
+			"blocks_per_second": float64(analysis.totalBlocks-1) / elapsed,
+		},
+		MinerBlocks: analysis.minerCounts, Blocks: blocks, Tips: tips, Peers: peers,
+	}
+
+	now := time.Now()
+	filename := filepath.Join("results", "json", fmt.Sprintf("%s-%s.json", logFilePrefix, now.Format("20060102-150405.000000000")))
+	if err := os.MkdirAll(filepath.Dir(filename), 0o755); err != nil {
+		return fmt.Errorf("create JSON directory: %w", err)
+	}
+	encoded, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		return fmt.Errorf("encode JSON report: %w", err)
+	}
+	if err := os.WriteFile(filename, append(encoded, '\n'), 0o644); err != nil {
+		return fmt.Errorf("write JSON report: %w", err)
+	}
 	return nil
 }
 

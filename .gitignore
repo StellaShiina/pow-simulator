@@ -1,4 +1,9 @@
 *.exe
 
 results/*
-!results/*example.log
+!results/log/
+!results/json/
+results/log/*
+results/json/*
+!results/log/example.log
+!results/json/example.json
