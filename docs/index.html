@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PoW Simulator - discrete ticks and real concurrent routines in one experiment lab." />
+    <meta name="theme-color" content="#0d1117" />
+    <title>PoW Simulator / experiment lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      try { document.documentElement.dataset.theme = localStorage.getItem('pow-theme') || 'system'; }
+      catch { document.documentElement.dataset.theme = 'system'; }
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="PoW Simulator home">
+          <span class="brand-mark"><i></i><i></i><i></i></span>
+          <span>PoW <b>SIMULATOR</b></span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#models" data-i18n="nav.models">models</a>
+          <a href="#experiments" data-i18n="nav.experiments">experiments</a>
+          <a href="#data" data-i18n="nav.data">data</a>
+        </nav>
+        <div class="top-actions">
+          <button class="language-button" id="language-toggle" type="button" aria-label="Switch language" title="Switch language">中 / EN</button>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+            <span class="theme-sun">☼</span><span class="theme-moon">◐</span>
+          </button>
+          <a class="github-link" href="https://github.com/StellaShiina/pow-simulator" target="_blank" rel="noreferrer">github <span>↗</span></a>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero section-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="live-dot"></span> <span data-i18n="hero.eyebrow">open experiment / deterministic by design</span></p>
+            <h1 data-i18n="hero.title">Two clocks.<br /><em>One chain.</em></h1>
+            <p class="hero-lede" data-i18n="hero.lede">A visual field guide to Proof-of-Work behavior across discrete time and real concurrent network routines.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#experiments"><span data-i18n="hero.results">Explore the results</span> <span>↓</span></a>
+              <a class="button button-quiet" href="#models"><span data-i18n="hero.compare">Compare the models</span> <span>→</span></a>
+            </div>
+            <div class="hero-meta"><span>GO 1.22+</span><span>SEED 42</span><span>JSON + LOG</span></div>
+          </div>
+          <div class="hero-visual" aria-label="Animated network simulation visualization">
+            <div class="visual-label label-a"><span data-i18n="visual.propagation">propagation field</span> <span data-i18n="visual.live">LIVE</span></div>
+            <div class="visual-label label-b"><span data-i18n="visual.height">height</span> <b id="visual-height">92</b></div>
+            <div class="network-stage">
+              <div class="network-grid"></div>
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+              <div class="packet packet-one"></div><div class="packet packet-two"></div><div class="packet packet-three"></div>
+              <svg class="network-lines" viewBox="0 0 620 480" role="img" aria-label="Nodes connected in a peer network">
+                <path d="M310 240 L160 122 L90 290 L215 395 L440 386 L536 245 L468 105 L310 240 M160 122 L468 105 M90 290 L536 245 M215 395 L160 122 M440 386 L468 105" />
+              </svg>
+              <div class="node node-core"><span>↯</span></div>
+              <div class="node node-1"><span>01</span></div><div class="node node-2"><span>02</span></div>
+              <div class="node node-3"><span>03</span></div><div class="node node-4"><span>04</span></div>
+              <div class="node node-5"><span>05</span></div><div class="node node-6"><span>06</span></div>
+              <div class="node node-7"><span>07</span></div>
+              <div class="stage-readout"><span class="mono">TICK 0092</span><strong data-i18n="visual.extends">chain extends</strong><span class="mono">+ 01 block</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="signal-strip" aria-label="Project summary">
+          <div><span class="signal-key">01</span><strong data-i18n="signals.control">CONTROL</strong><small data-i18n="signals.controlText">reproducible experiments</small></div>
+          <div><span class="signal-key">02</span><strong data-i18n="signals.observe">OBSERVE</strong><small data-i18n="signals.observeText">forks, tips, miner share</small></div>
+          <div><span class="signal-key">03</span><strong data-i18n="signals.compare">COMPARE</strong><small data-i18n="signals.compareText">same PoW, different clocks</small></div>
+          <div><span class="signal-key">04</span><strong data-i18n="signals.export">EXPORT</strong><small data-i18n="signals.exportText">human logs / machine JSON</small></div>
+        </section>
+
+        <section class="section" id="models">
+          <div class="section-heading">
+            <div><p class="eyebrow">01 / <span data-i18n="models.kicker">the setup</span></p><h2 data-i18n="models.title">One phenomenon,<br /><span>two observatories.</span></h2></div>
+            <p class="section-intro" data-i18n="models.intro">The project keeps the chain model intentionally simple, then changes the clock and network around it. That makes the effect of latency visible instead of burying it in infrastructure.</p>
+          </div>
+          <div class="model-grid">
+            <article class="model-card tick-card">
+              <div class="card-top"><span class="model-index">A</span><span class="model-tag" data-i18n="tick.tag">DISCRETE / CENTRALIZED</span></div>
+              <div class="model-title"><span class="clock-icon">◷</span><h3 data-i18n="tick.title">Tick simulator</h3></div>
+              <p data-i18n="tick.description">Every node tries, packets wait in time buckets, then tips reconcile. A controlled lens for comparing difficulty, population and attack rate.</p>
+              <div class="mini-timeline"><span></span><span></span><span></span><span class="active"></span><span></span><span></span><i>tick →</i></div>
+              <div class="card-footer"><span data-i18n="tick.rounds">10000 rounds</span><a href="https://github.com/StellaShiina/pow-simulator/tree/main" target="_blank" rel="noreferrer" data-i18n="common.source">view source ↗</a></div>
+            </article>
+            <article class="model-card routine-card">
+              <div class="card-top"><span class="model-index">B</span><span class="model-tag" data-i18n="routine.tag">CONTINUOUS / GOSSIP</span></div>
+              <div class="model-title"><span class="clock-icon">◌</span><h3 data-i18n="routine.title">Routine simulator</h3></div>
+              <p data-i18n="routine.description">Independent goroutines mine and gossip over real TCP connections. Bootnode observes the DAG while peers discover their own rhythm.</p>
+              <div class="mini-network"><span></span><span></span><span></span><span></span><span></span><i>gossip →</i></div>
+              <div class="card-footer"><span data-i18n="routine.peers">10 peers / 2° density</span><a href="https://github.com/StellaShiina/pow-simulator/tree/routine" target="_blank" rel="noreferrer" data-i18n="common.source">view source ↗</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="data-section" id="experiments">
+          <div class="section-heading compact-heading">
+            <div><p class="eyebrow">02 / <span data-i18n="experiments.kicker">observed output</span></p><h2 data-i18n="experiments.title">Signals from<br /><span>the sandbox.</span></h2></div>
+            <div class="data-controls"><div class="segmented" role="tablist" aria-label="Experiment data"><button class="active" data-view="overview" role="tab" data-i18n="experiments.overview">overview</button><button data-view="attack" role="tab" data-i18n="experiments.attack">attack curve</button></div><span class="data-note" data-i18n="experiments.sample">sample / seed 42</span></div>
+          </div>
+          <div class="dashboard" id="data">
+            <div class="metric-grid">
+              <article class="metric"><span data-i18n="metrics.height">LONGEST CHAIN</span><strong id="metric-height">92</strong><small data-i18n="metrics.heightText">blocks / routine sample</small><div class="metric-bar"><i style="width:92%"></i></div></article>
+              <article class="metric"><span data-i18n="metrics.rate">BLOCK RATE</span><strong id="metric-rate">9.20</strong><small data-i18n="metrics.rateText">blocks per second</small><div class="metric-bar cyan"><i style="width:76%"></i></div></article>
+              <article class="metric"><span data-i18n="metrics.tips">ACTIVE TIPS</span><strong id="metric-tips">03</strong><small data-i18n="metrics.tipsText">visible chain endings</small><div class="metric-bar orange"><i style="width:34%"></i></div></article>
+              <article class="metric"><span data-i18n="metrics.forks">FORK EVENTS</span><strong id="metric-forks">02</strong><small data-i18n="metrics.forksText">same-height collisions</small><div class="metric-bar violet"><i style="width:22%"></i></div></article>
+            </div>
+            <div class="chart-panel">
+              <div class="panel-heading"><div><span class="panel-kicker" data-i18n="chart.kicker">FORK ATTACK / SUCCESS RATE</span><h3 data-i18n="chart.title">When private work outruns public time</h3></div><span class="chart-unit" data-i18n="chart.unit">probability</span></div>
+              <div class="chart-wrap"><div class="y-labels"><span>40%</span><span>30%</span><span>20%</span><span>10%</span><span>0%</span></div><div class="chart" id="attack-chart"><div class="chart-grid"><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 720 260" preserveAspectRatio="none" aria-label="Fork attack success rate chart"><path id="chart-area" d=""></path><path id="chart-line" d=""></path><g id="chart-points"></g></svg><div class="x-labels"><span>10%</span><span>20%</span><span>30%</span><span>40%</span></div></div></div>
+            </div>
+            <aside class="insight-panel"><span class="panel-kicker" data-i18n="insight.kicker">READOUT / 01</span><h3 id="insight-title" data-i18n="insight.title">Propagation is the variable.</h3><p id="insight-copy" data-i18n="insight.copy">With the same PoW rule, a delayed view of the chain creates room for competing tips. The Tick model makes that room measurable.</p><div class="insight-line"><span></span><b id="insight-value">29.83%</b><small data-i18n="insight.valueText">success at 40% malicious rate</small></div></aside>
+          </div>
+        </section>
+
+        <section class="section architecture">
+          <div class="section-heading"><div><p class="eyebrow">03 / <span data-i18n="architecture.kicker">under the hood</span></p><h2 data-i18n="architecture.title">Simple rules.<br /><span>Rich behavior.</span></h2></div><p class="section-intro" data-i18n="architecture.intro">No real hashing, no transaction layer, no magic. Just enough machinery to make propagation delay, private chains and miner strategy legible.</p></div>
+          <div class="architecture-layout"><div class="flow-diagram"><div class="flow-node"><b>01</b><strong data-i18n="architecture.mine">mine</strong><small data-i18n="architecture.mineText">probability × hash power</small></div><span class="flow-arrow">→</span><div class="flow-node"><b>02</b><strong data-i18n="architecture.propagate">propagate</strong><small data-i18n="architecture.propagateText">delay or TCP gossip</small></div><span class="flow-arrow">→</span><div class="flow-node"><b>03</b><strong data-i18n="architecture.reconcile">reconcile</strong><small data-i18n="architecture.reconcileText">highest visible tip wins</small></div></div><div class="code-note"><span class="mono">MODEL / POW</span><code>Difficulty × HashPower</code><p data-i18n="architecture.note">Both branches share the same probability rule. Only the clock, transport and observability layer change.</p></div></div>
+        </section>
+
+        <section class="footer-cta"><div><p class="eyebrow" data-i18n="footer.kicker">run the experiment</p><h2 data-i18n="footer.title">Make the network<br /><em>show its work.</em></h2></div><div class="cta-actions"><a class="button button-primary" href="https://github.com/StellaShiina/pow-simulator" target="_blank" rel="noreferrer" data-i18n="footer.repository">Open repository <span>↗</span></a><a class="button button-quiet" id="download-data" href="#" data-i18n="footer.download">Download sample JSON <span>↓</span></a></div></section>
+      </main>
+      <footer class="footer"><span>PoW SIMULATOR / 2026</span><span data-i18n="footer.tagline">DISCRETE + CONTINUOUS / OBSERVE THE DIFFERENCE</span><span data-i18n="footer.built">BUILT FOR EXPERIMENTS</span></footer>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

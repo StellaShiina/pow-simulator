@@ -1,0 +1,57 @@
+{
+  "experiment": "fork-attack-var1",
+  "results": [
+    {
+      "experiment": "fork_attack",
+      "malicious_rate": 0.4,
+      "difficulty": 0.001,
+      "node_count": 100,
+      "rounds": 10000,
+      "successes": 2983,
+      "success_rate": 0.2983,
+      "random_seed": [
+        7,
+        21
+      ]
+    },
+    {
+      "experiment": "fork_attack",
+      "malicious_rate": 0.3,
+      "difficulty": 0.001,
+      "node_count": 100,
+      "rounds": 10000,
+      "successes": 823,
+      "success_rate": 0.0823,
+      "random_seed": [
+        7,
+        21
+      ]
+    },
+    {
+      "experiment": "fork_attack",
+      "malicious_rate": 0.2,
+      "difficulty": 0.001,
+      "node_count": 100,
+      "rounds": 10000,
+      "successes": 110,
+      "success_rate": 0.011,
+      "random_seed": [
+        7,
+        21
+      ]
+    },
+    {
+      "experiment": "fork_attack",
+      "malicious_rate": 0.1,
+      "difficulty": 0.001,
+      "node_count": 100,
+      "rounds": 10000,
+      "successes": 3,
+      "success_rate": 0.0003,
+      "random_seed": [
+        7,
+        21
+      ]
+    }
+  ]
+}

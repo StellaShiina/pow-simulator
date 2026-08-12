@@ -1,0 +1,6 @@
+{
+  "source": "routine",
+  "label": "Routine simulator",
+  "parameters": { "node_count": 10, "difficulty": 0.001, "density": 0.2, "target_height": 100, "seed": 42 },
+  "overview": { "total_blocks": 94, "longest_height": 92, "active_tips": 3, "total_forks": 2, "blocks_per_second": 9.1988263589 }
+}

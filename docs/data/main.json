@@ -1,0 +1,14 @@
+{
+  "source": "tick",
+  "label": "Tick simulator",
+  "experiment": "fork_attack",
+  "node_count": 100,
+  "difficulty": 0.001,
+  "rounds": 10000,
+  "series": [
+    { "malicious_rate": 0.1, "success_rate": 0.0003 },
+    { "malicious_rate": 0.2, "success_rate": 0.011 },
+    { "malicious_rate": 0.3, "success_rate": 0.0823 },
+    { "malicious_rate": 0.4, "success_rate": 0.2983 }
+  ]
+}

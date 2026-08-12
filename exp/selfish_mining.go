@@ -1,7 +1,6 @@
 package exp
 
 import (
-	"fmt"
 	"math/rand/v2"
 	"time"
 
@@ -11,7 +10,18 @@ import (
 	"github.com/stellashiina/pow-simulator/simulator"
 )
 
-func Selfish(maliciousRate, difficulty float64, nodeCount int, randSeed *[2]uint64) {
+type SelfishMiningResult struct {
+	Experiment    string    `json:"experiment"`
+	MaliciousRate float64   `json:"malicious_rate"`
+	Difficulty    float64   `json:"difficulty"`
+	NodeCount     int       `json:"node_count"`
+	Rounds        int       `json:"rounds"`
+	IncomeBlocks  int       `json:"income_blocks"`
+	Profitability float64   `json:"profitability"`
+	RandomSeed    [2]uint64 `json:"random_seed"`
+}
+
+func Selfish(maliciousRate, difficulty float64, nodeCount int, randSeed *[2]uint64) SelfishMiningResult {
 	round := 1000
 	config.Difficulty = difficulty
 	config.NodesCount = nodeCount
@@ -47,5 +57,17 @@ func Selfish(maliciousRate, difficulty float64, nodeCount int, randSeed *[2]uint
 		}
 		selfishIncome += sum / len(sim.Tips)
 	}
-	fmt.Printf("[MaliciousRate %f] Profitability %f\n", maliciousRate, float64(selfishIncome)/float64(round*config.Target))
+	result := SelfishMiningResult{
+		Experiment:    "selfish_mining",
+		MaliciousRate: maliciousRate,
+		Difficulty:    difficulty,
+		NodeCount:     nodeCount,
+		Rounds:        round,
+		IncomeBlocks:  selfishIncome,
+		Profitability: float64(selfishIncome) / float64(round*config.Target),
+	}
+	if randSeed != nil {
+		result.RandomSeed = *randSeed
+	}
+	return result
 }

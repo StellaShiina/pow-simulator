@@ -96,7 +96,8 @@
 ├── simulator/          # 仿真主循环与全局状态管理
 ├── main.go             # 命令行试验入口
 ├── main_test.go        # 参数实验：节点数/难度/出块速度
-├── result.log          # 一次完整 go test 输出结果
+├── results/log/        # 面向阅读的实验日志
+├── results/json/       # 面向分析的结构化实验数据
 ├── REPORT.md           # 详细实验报告
 └── LICENSE             # MIT 许可证
 ```
@@ -172,9 +173,25 @@ go test -run TestForkATK -v ./exp
 go test -run TestSelfish -v ./exp
 ```
 
+## GitHub Pages 展示页
+
+项目展示页位于 [`docs/`](./docs/)；它会同时展示 Tick 版和 Routine 版，使用两版的
+`results/*/example.json` 作为静态数据快照。推送到 `main` 分支后，
+`.github/workflows/pages.yml` 会自动发布到 GitHub Pages。
+
+首次启用时，在仓库设置中将 `Settings → Pages → Build and deployment → Source`
+设置为 `GitHub Actions` 即可。
+
 ## 结果说明
 
-当前仓库中的 [result.log](./result.log) 是一次完整运行的结果快照，主要对应三类实验：
+默认运行 `go test -v ./...` 会同时生成两类结果：
+
+- `results/log/`：按参数实验、分叉攻击和自私挖矿实验生成的可读表格日志。
+- `results/json/`：与日志对应的结构化统计数据。
+
+两个目录中的时间戳文件默认不纳入 Git，仅保留 `example.log` 和 `example.json` 作为格式样例。
+
+实验主要对应三类数据：
 
 1. `TestParameters`
    - 测量节点数量与难度变化对 `ticks/block` 的影响。
@@ -243,7 +260,7 @@ go test -run TestSelfish -v ./exp
 
 - 保持测试驱动方式，优先在 `*_test.go` 中组织实验。
 - 尽量复用固定随机种子，便于对比改动前后的结果。
-- 修改攻击逻辑后，建议同时查看 `result.log` 风格输出，确认趋势是否符合预期。
+- 修改攻击逻辑后，建议同时查看 `results/log/example.log` 风格输出，确认趋势是否符合预期。
 - 若引入更复杂网络模型，建议优先保持接口清晰，而不是直接把逻辑耦合到 `Simulator.Run()` 中。
 
 ## 局限性说明
