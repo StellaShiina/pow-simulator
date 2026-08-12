@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "source_directory": "routine/results/log",
+  "extraction_note": "Parameters, overview values, and every displayed block are transcribed from the named Routine logs. main_chain is a contiguous display window from the reported longest chain; forks contains the non-canonical DAG nodes attached to main-chain blocks in that window.",
+  "scenarios": [
+    {
+      "id": "low-fork",
+      "label": "Low fork pressure",
+      "source_log": "result-routine-20260812-215736.903095500.log",
+      "parameters": {
+        "nodes": 5,
+        "difficulty": 0.005,
+        "density": 0.3,
+        "target_height": 30,
+        "seed": 42,
+        "run_time_seconds": 1.39
+      },
+      "overview": {
+        "genesis_hash": "0d8b305686468bce",
+        "total_blocks_excluding_genesis": 31,
+        "total_forks": 1,
+        "longest_chain_height": 30,
+        "active_tips": 2,
+        "average_block_rate": 22.33
+      },
+      "display_window": {
+        "start_height": 0,
+        "end_height": 10,
+        "main_chain_complete": false
+      },
+      "main_chain": [
+        { "height": 0, "miner": -1, "hash": "0d8b305686468bce", "parent_hash": null },
+        { "height": 1, "miner": 0, "hash": "6244febf14b01e89", "parent_hash": "0d8b305686468bce" },
+        { "height": 2, "miner": 0, "hash": "48dc24fbe2c8f861", "parent_hash": "6244febf14b01e89" },
+        { "height": 3, "miner": 1, "hash": "a77aa895394643e7", "parent_hash": "48dc24fbe2c8f861" },
+        { "height": 4, "miner": 4, "hash": "c4691a1f6e8e0866", "parent_hash": "a77aa895394643e7" },
+        { "height": 5, "miner": 0, "hash": "18313a2b7ef88668", "parent_hash": "c4691a1f6e8e0866" },
+        { "height": 6, "miner": 0, "hash": "d496be57582e4f6d", "parent_hash": "18313a2b7ef88668" },
+        { "height": 7, "miner": 4, "hash": "6721bf87b3268c2d", "parent_hash": "d496be57582e4f6d" },
+        { "height": 8, "miner": 0, "hash": "d2cb2dca637883db", "parent_hash": "6721bf87b3268c2d" },
+        { "height": 9, "miner": 0, "hash": "9292c81f9ae6aa8d", "parent_hash": "d2cb2dca637883db" },
+        { "height": 10, "miner": 3, "hash": "2ffa2f24f77b7968", "parent_hash": "9292c81f9ae6aa8d" }
+      ],
+      "forks": [
+        {
+          "fork_height": 4,
+          "parent_height": 3,
+          "parent_hash": "a77aa895394643e7",
+          "branches": [
+            {
+              "root_hash": "b8e8efc9d51c6ca0",
+              "tip_hashes": ["b8e8efc9d51c6ca0"],
+              "blocks": [
+                { "height": 4, "miner": 2, "hash": "b8e8efc9d51c6ca0", "parent_hash": "a77aa895394643e7" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medium-fork",
+      "label": "Medium fork pressure",
+      "source_log": "result-routine-20260812-215819.423272600.log",
+      "parameters": {
+        "nodes": 10,
+        "difficulty": 0.05,
+        "density": 0.6,
+        "target_height": 30,
+        "seed": 42,
+        "run_time_seconds": 0.36
+      },
+      "overview": {
+        "genesis_hash": "0d8b305686468bce",
+        "total_blocks_excluding_genesis": 108,
+        "total_forks": 23,
+        "longest_chain_height": 36,
+        "active_tips": 27,
+        "average_block_rate": 296.2
+      },
+      "display_window": {
+        "start_height": 18,
+        "end_height": 36,
+        "main_chain_complete": false
+      },
+      "main_chain": [
+        { "height": 18, "miner": 9, "hash": "250014be3ff748d8", "parent_hash": "2b6e6caeb7769d70" },
+        { "height": 19, "miner": 8, "hash": "28aa76be4f8f7413", "parent_hash": "250014be3ff748d8" },
+        { "height": 20, "miner": 8, "hash": "162b0c6e9a1a30e9", "parent_hash": "28aa76be4f8f7413" },
+        { "height": 21, "miner": 2, "hash": "273c6a753e7ef723", "parent_hash": "162b0c6e9a1a30e9" },
+        { "height": 22, "miner": 6, "hash": "6f66d42705e63654", "parent_hash": "273c6a753e7ef723" },
+        { "height": 23, "miner": 6, "hash": "125d4cd6c9f67b7c", "parent_hash": "6f66d42705e63654" },
+        { "height": 24, "miner": 7, "hash": "fda6a6ba4485f195", "parent_hash": "125d4cd6c9f67b7c" },
+        { "height": 25, "miner": 6, "hash": "9877d536bb09c2eb", "parent_hash": "fda6a6ba4485f195" },
+        { "height": 26, "miner": 4, "hash": "527bfcca3ebfaf69", "parent_hash": "9877d536bb09c2eb" },
+        { "height": 27, "miner": 4, "hash": "f956437318927285", "parent_hash": "527bfcca3ebfaf69" },
+        { "height": 28, "miner": 4, "hash": "b77c41ece9871559", "parent_hash": "f956437318927285" },
+        { "height": 29, "miner": 5, "hash": "f9457dd02dc2fd76", "parent_hash": "b77c41ece9871559" },
+        { "height": 30, "miner": 4, "hash": "258662fbcd22557c", "parent_hash": "f9457dd02dc2fd76" },
+        { "height": 31, "miner": 4, "hash": "4da14f0a998b808b", "parent_hash": "258662fbcd22557c" },
+        { "height": 32, "miner": 9, "hash": "74f93b2cca48ba3b", "parent_hash": "4da14f0a998b808b" },
+        { "height": 33, "miner": 6, "hash": "4c35c3cae9c03acb", "parent_hash": "74f93b2cca48ba3b" },
+        { "height": 34, "miner": 6, "hash": "7ff2dbf46833dbc9", "parent_hash": "4c35c3cae9c03acb" },
+        { "height": 35, "miner": 7, "hash": "f7bf2011d29a5d0f", "parent_hash": "7ff2dbf46833dbc9" },
+        { "height": 36, "miner": 9, "hash": "a868aef5a1fe1cb7", "parent_hash": "f7bf2011d29a5d0f" }
+      ],
+      "forks": [
+        {
+          "fork_height": 19,
+          "parent_height": 18,
+          "parent_hash": "250014be3ff748d8",
+          "branches": [
+            {
+              "root_hash": "413de506508f3543",
+              "tip_hashes": ["413de506508f3543"],
+              "blocks": [
+                { "height": 19, "miner": 5, "hash": "413de506508f3543", "parent_hash": "250014be3ff748d8" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 21,
+          "parent_height": 20,
+          "parent_hash": "162b0c6e9a1a30e9",
+          "branches": [
+            {
+              "root_hash": "fcdbbc62b451a80a",
+              "tip_hashes": ["c9e280b09c34e0a7", "a232a0a9739e4b85", "ab8d8fccd7b37d82", "95488486095c488e"],
+              "blocks": [
+                { "height": 21, "miner": 3, "hash": "fcdbbc62b451a80a", "parent_hash": "162b0c6e9a1a30e9" },
+                { "height": 22, "miner": 9, "hash": "c9e280b09c34e0a7", "parent_hash": "fcdbbc62b451a80a" },
+                { "height": 22, "miner": 1, "hash": "a232a0a9739e4b85", "parent_hash": "fcdbbc62b451a80a" },
+                { "height": 22, "miner": 7, "hash": "ab8d8fccd7b37d82", "parent_hash": "fcdbbc62b451a80a" },
+                { "height": 22, "miner": 5, "hash": "95488486095c488e", "parent_hash": "fcdbbc62b451a80a" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 26,
+          "parent_height": 25,
+          "parent_hash": "9877d536bb09c2eb",
+          "branches": [
+            {
+              "root_hash": "faacd96a62aba6b6",
+              "tip_hashes": ["f4a94e98f19eee7f", "54fea783e6c0c9bb", "a4b4e579b8b1d569"],
+              "blocks": [
+                { "height": 26, "miner": 2, "hash": "faacd96a62aba6b6", "parent_hash": "9877d536bb09c2eb" },
+                { "height": 27, "miner": 8, "hash": "f4a94e98f19eee7f", "parent_hash": "faacd96a62aba6b6" },
+                { "height": 27, "miner": 7, "hash": "54fea783e6c0c9bb", "parent_hash": "faacd96a62aba6b6" },
+                { "height": 27, "miner": 0, "hash": "a4b4e579b8b1d569", "parent_hash": "faacd96a62aba6b6" }
+              ]
+            },
+            {
+              "root_hash": "fd39b76120a3c3d0",
+              "tip_hashes": ["fd39b76120a3c3d0"],
+              "blocks": [
+                { "height": 26, "miner": 5, "hash": "fd39b76120a3c3d0", "parent_hash": "9877d536bb09c2eb" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 27,
+          "parent_height": 26,
+          "parent_hash": "527bfcca3ebfaf69",
+          "branches": [
+            {
+              "root_hash": "d80361122fe9dd6d",
+              "tip_hashes": ["d80361122fe9dd6d"],
+              "blocks": [
+                { "height": 27, "miner": 1, "hash": "d80361122fe9dd6d", "parent_hash": "527bfcca3ebfaf69" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 30,
+          "parent_height": 29,
+          "parent_hash": "f9457dd02dc2fd76",
+          "branches": [
+            {
+              "root_hash": "0fc19ac480ab4d5c",
+              "tip_hashes": ["0fc19ac480ab4d5c"],
+              "blocks": [
+                { "height": 30, "miner": 8, "hash": "0fc19ac480ab4d5c", "parent_hash": "f9457dd02dc2fd76" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "high-fork",
+      "label": "High fork pressure",
+      "source_log": "result-routine-20260812-215827.995227300.log",
+      "parameters": {
+        "nodes": 20,
+        "difficulty": 0.02,
+        "density": 0.6,
+        "target_height": 30,
+        "seed": 42,
+        "run_time_seconds": 1.82
+      },
+      "overview": {
+        "genesis_hash": "0d8b305686468bce",
+        "total_blocks_excluding_genesis": 302,
+        "total_forks": 63,
+        "longest_chain_height": 76,
+        "active_tips": 123,
+        "average_block_rate": 165.91
+      },
+      "display_window": {
+        "start_height": 56,
+        "end_height": 76,
+        "main_chain_complete": false
+      },
+      "main_chain": [
+        { "height": 56, "miner": 8, "hash": "8e1898705c9c1610", "parent_hash": "f0e61c2a3860106f" },
+        { "height": 57, "miner": 12, "hash": "ab15ed0ed01bb7e1", "parent_hash": "8e1898705c9c1610" },
+        { "height": 58, "miner": 15, "hash": "f5f7702d7da8f6d6", "parent_hash": "ab15ed0ed01bb7e1" },
+        { "height": 59, "miner": 15, "hash": "54a816f6ea4b52b8", "parent_hash": "f5f7702d7da8f6d6" },
+        { "height": 60, "miner": 10, "hash": "87b8debde3d933f1", "parent_hash": "54a816f6ea4b52b8" },
+        { "height": 61, "miner": 8, "hash": "bfc140d57c315220", "parent_hash": "87b8debde3d933f1" },
+        { "height": 62, "miner": 13, "hash": "630a8ddd13f075dd", "parent_hash": "bfc140d57c315220" },
+        { "height": 63, "miner": 12, "hash": "43653c775fbe4151", "parent_hash": "630a8ddd13f075dd" },
+        { "height": 64, "miner": 12, "hash": "ce16ce7d8ee7a632", "parent_hash": "43653c775fbe4151" },
+        { "height": 65, "miner": 12, "hash": "84bb71c8eab98b70", "parent_hash": "ce16ce7d8ee7a632" },
+        { "height": 66, "miner": 12, "hash": "9153bf71c152d9a7", "parent_hash": "84bb71c8eab98b70" },
+        { "height": 67, "miner": 12, "hash": "cb2915d2fc4d6108", "parent_hash": "9153bf71c152d9a7" },
+        { "height": 68, "miner": 12, "hash": "d15fb9356d71aa87", "parent_hash": "cb2915d2fc4d6108" },
+        { "height": 69, "miner": 12, "hash": "5526de1575354a4a", "parent_hash": "d15fb9356d71aa87" },
+        { "height": 70, "miner": 11, "hash": "ab7fc0cab8c9c026", "parent_hash": "5526de1575354a4a" },
+        { "height": 71, "miner": 17, "hash": "ae49a3b3e8c92fe7", "parent_hash": "ab7fc0cab8c9c026" },
+        { "height": 72, "miner": 10, "hash": "c222dd9da3711275", "parent_hash": "ae49a3b3e8c92fe7" },
+        { "height": 73, "miner": 10, "hash": "9f32edcb2fd0ca27", "parent_hash": "c222dd9da3711275" },
+        { "height": 74, "miner": 16, "hash": "7f2367f35e5f4d72", "parent_hash": "9f32edcb2fd0ca27" },
+        { "height": 75, "miner": 19, "hash": "8a250c3f8b9dbc87", "parent_hash": "7f2367f35e5f4d72" },
+        { "height": 76, "miner": 16, "hash": "f60476f78051fccf", "parent_hash": "8a250c3f8b9dbc87" }
+      ],
+      "forks": [
+        {
+          "fork_height": 57,
+          "parent_height": 56,
+          "parent_hash": "8e1898705c9c1610",
+          "branches": [
+            {
+              "root_hash": "e6a9ca1c46e4d3d8",
+              "tip_hashes": ["e6a9ca1c46e4d3d8"],
+              "blocks": [
+                { "height": 57, "miner": 13, "hash": "e6a9ca1c46e4d3d8", "parent_hash": "8e1898705c9c1610" }
+              ]
+            },
+            {
+              "root_hash": "6f5234d2f026f7d5",
+              "tip_hashes": ["6f5234d2f026f7d5"],
+              "blocks": [
+                { "height": 57, "miner": 14, "hash": "6f5234d2f026f7d5", "parent_hash": "8e1898705c9c1610" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 58,
+          "parent_height": 57,
+          "parent_hash": "ab15ed0ed01bb7e1",
+          "branches": [
+            {
+              "root_hash": "71182e8083d78e4e",
+              "tip_hashes": ["edb37559582176bc"],
+              "blocks": [
+                { "height": 58, "miner": 19, "hash": "71182e8083d78e4e", "parent_hash": "ab15ed0ed01bb7e1" },
+                { "height": 59, "miner": 18, "hash": "edb37559582176bc", "parent_hash": "71182e8083d78e4e" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 62,
+          "parent_height": 61,
+          "parent_hash": "bfc140d57c315220",
+          "branches": [
+            {
+              "root_hash": "d84bd3a1aa2cd77e",
+              "tip_hashes": ["d242d42346c6902c"],
+              "blocks": [
+                { "height": 62, "miner": 8, "hash": "d84bd3a1aa2cd77e", "parent_hash": "bfc140d57c315220" },
+                { "height": 63, "miner": 11, "hash": "d242d42346c6902c", "parent_hash": "d84bd3a1aa2cd77e" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 63,
+          "parent_height": 62,
+          "parent_hash": "630a8ddd13f075dd",
+          "branches": [
+            {
+              "root_hash": "85eb6cacc0914b4c",
+              "tip_hashes": ["3f8e161053050182"],
+              "blocks": [
+                { "height": 63, "miner": 13, "hash": "85eb6cacc0914b4c", "parent_hash": "630a8ddd13f075dd" },
+                { "height": 64, "miner": 14, "hash": "1794d482a9749dbe", "parent_hash": "85eb6cacc0914b4c" },
+                { "height": 65, "miner": 13, "hash": "3f8e161053050182", "parent_hash": "1794d482a9749dbe" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 67,
+          "parent_height": 66,
+          "parent_hash": "9153bf71c152d9a7",
+          "branches": [
+            {
+              "root_hash": "133489ad4d83842a",
+              "tip_hashes": ["34d9f4cd4c9ea61b"],
+              "blocks": [
+                { "height": 67, "miner": 11, "hash": "133489ad4d83842a", "parent_hash": "9153bf71c152d9a7" },
+                { "height": 68, "miner": 19, "hash": "7021dbbb89ff6a15", "parent_hash": "133489ad4d83842a" },
+                { "height": 69, "miner": 17, "hash": "34d9f4cd4c9ea61b", "parent_hash": "7021dbbb89ff6a15" }
+              ]
+            },
+            {
+              "root_hash": "137337d6d07f96ae",
+              "tip_hashes": ["137337d6d07f96ae"],
+              "blocks": [
+                { "height": 67, "miner": 15, "hash": "137337d6d07f96ae", "parent_hash": "9153bf71c152d9a7" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 68,
+          "parent_height": 67,
+          "parent_hash": "cb2915d2fc4d6108",
+          "branches": [
+            {
+              "root_hash": "532cf555e8ddb36e",
+              "tip_hashes": ["532cf555e8ddb36e"],
+              "blocks": [
+                { "height": 68, "miner": 10, "hash": "532cf555e8ddb36e", "parent_hash": "cb2915d2fc4d6108" }
+              ]
+            }
+          ]
+        },
+        {
+          "fork_height": 70,
+          "parent_height": 69,
+          "parent_hash": "5526de1575354a4a",
+          "branches": [
+            {
+              "root_hash": "26275cfa8189d1ce",
+              "tip_hashes": ["26275cfa8189d1ce"],
+              "blocks": [
+                { "height": 70, "miner": 16, "hash": "26275cfa8189d1ce", "parent_hash": "5526de1575354a4a" }
+              ]
+            },
+            {
+              "root_hash": "15168479a181d5f7",
+              "tip_hashes": ["15168479a181d5f7"],
+              "blocks": [
+                { "height": 70, "miner": 19, "hash": "15168479a181d5f7", "parent_hash": "5526de1575354a4a" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

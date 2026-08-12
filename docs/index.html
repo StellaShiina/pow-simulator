@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./pow-mark.svg" type="image/svg+xml" />
     <script>
       try { document.documentElement.dataset.theme = localStorage.getItem('pow-theme') || 'system'; }
       catch { document.documentElement.dataset.theme = 'system'; }
@@ -28,7 +29,7 @@
           <a href="#data" data-i18n="nav.data">data</a>
         </nav>
         <div class="top-actions">
-          <button class="language-button" id="language-toggle" type="button" aria-label="Switch language" title="Switch language">中 / EN</button>
+          <button class="language-button" id="language-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="language-glyph">文</span><span>中 / EN</span></button>
           <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
             <span class="theme-sun">☼</span><span class="theme-moon">◐</span>
           </button>
@@ -40,8 +41,8 @@
         <section class="hero section-grid">
           <div class="hero-copy">
             <p class="eyebrow"><span class="live-dot"></span> <span data-i18n="hero.eyebrow">open experiment / deterministic by design</span></p>
-            <h1 data-i18n="hero.title">Two clocks.<br /><em>One chain.</em></h1>
-            <p class="hero-lede" data-i18n="hero.lede">A visual field guide to Proof-of-Work behavior across discrete time and real concurrent network routines.</p>
+            <h1 data-i18n="hero.title"><em>Gears and starfields.</em><br /><span class="hero-title-line">Proof of work,</span><br /><span class="hero-title-line">two clocks.</span></h1>
+            <p class="hero-lede" data-i18n="hero.lede">The Tick model advances every node on one synchronized clock; the Routine model lets goroutines mine concurrently, with a 500 μs sleep after a failed attempt.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="#experiments"><span data-i18n="hero.results">Explore the results</span> <span>↓</span></a>
               <a class="button button-quiet" href="#models"><span data-i18n="hero.compare">Compare the models</span> <span>→</span></a>
@@ -50,20 +51,14 @@
           </div>
           <div class="hero-visual" aria-label="Animated network simulation visualization">
             <div class="visual-label label-a"><span data-i18n="visual.propagation">propagation field</span> <span data-i18n="visual.live">LIVE</span></div>
-            <div class="visual-label label-b"><span data-i18n="visual.height">height</span> <b id="visual-height">92</b></div>
-            <div class="network-stage">
+            <div class="visual-label label-b"><span data-i18n="visual.sample">sample</span> <b id="visual-sample">01 / 03</b></div>
+            <div class="network-stage chain-stage">
               <div class="network-grid"></div>
-              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-              <div class="packet packet-one"></div><div class="packet packet-two"></div><div class="packet packet-three"></div>
-              <svg class="network-lines" viewBox="0 0 620 480" role="img" aria-label="Nodes connected in a peer network">
-                <path d="M310 240 L160 122 L90 290 L215 395 L440 386 L536 245 L468 105 L310 240 M160 122 L468 105 M90 290 L536 245 M215 395 L160 122 M440 386 L468 105" />
-              </svg>
-              <div class="node node-core"><span>↯</span></div>
-              <div class="node node-1"><span>01</span></div><div class="node node-2"><span>02</span></div>
-              <div class="node node-3"><span>03</span></div><div class="node node-4"><span>04</span></div>
-              <div class="node node-5"><span>05</span></div><div class="node node-6"><span>06</span></div>
-              <div class="node node-7"><span>07</span></div>
-              <div class="stage-readout"><span class="mono">TICK 0092</span><strong data-i18n="visual.extends">chain extends</strong><span class="mono">+ 01 block</span></div>
+              <svg class="chain-visual" id="routine-carousel" viewBox="0 0 620 480" role="img" aria-label="Routine chain reconstructed from simulation logs"></svg>
+              <div class="chain-legend"><span><i class="legend-main"></i><b data-i18n="visual.mainChain">canonical tip</b></span><span><i class="legend-fork"></i><b data-i18n="visual.forkChain">competing tip</b></span></div>
+              <div class="chain-parameters" id="chain-parameters"></div>
+              <div class="chain-pagination" id="chain-pagination" aria-label="Routine log samples"></div>
+              <div class="stage-readout"><span class="mono" id="chain-source">ROUTINE / LOG</span><strong id="chain-summary">loading simulation log</strong><span class="mono" id="chain-detail">seed 42</span></div>
             </div>
           </div>
         </section>
@@ -99,22 +94,11 @@
         </section>
 
         <section class="data-section" id="experiments">
-          <div class="section-heading compact-heading">
-            <div><p class="eyebrow">02 / <span data-i18n="experiments.kicker">observed output</span></p><h2 data-i18n="experiments.title">Signals from<br /><span>the sandbox.</span></h2></div>
-            <div class="data-controls"><div class="segmented" role="tablist" aria-label="Experiment data"><button class="active" data-view="overview" role="tab" data-i18n="experiments.overview">overview</button><button data-view="attack" role="tab" data-i18n="experiments.attack">attack curve</button></div><span class="data-note" data-i18n="experiments.sample">sample / seed 42</span></div>
-          </div>
-          <div class="dashboard" id="data">
-            <div class="metric-grid">
-              <article class="metric"><span data-i18n="metrics.height">LONGEST CHAIN</span><strong id="metric-height">92</strong><small data-i18n="metrics.heightText">blocks / routine sample</small><div class="metric-bar"><i style="width:92%"></i></div></article>
-              <article class="metric"><span data-i18n="metrics.rate">BLOCK RATE</span><strong id="metric-rate">9.20</strong><small data-i18n="metrics.rateText">blocks per second</small><div class="metric-bar cyan"><i style="width:76%"></i></div></article>
-              <article class="metric"><span data-i18n="metrics.tips">ACTIVE TIPS</span><strong id="metric-tips">03</strong><small data-i18n="metrics.tipsText">visible chain endings</small><div class="metric-bar orange"><i style="width:34%"></i></div></article>
-              <article class="metric"><span data-i18n="metrics.forks">FORK EVENTS</span><strong id="metric-forks">02</strong><small data-i18n="metrics.forksText">same-height collisions</small><div class="metric-bar violet"><i style="width:22%"></i></div></article>
-            </div>
-            <div class="chart-panel">
-              <div class="panel-heading"><div><span class="panel-kicker" data-i18n="chart.kicker">FORK ATTACK / SUCCESS RATE</span><h3 data-i18n="chart.title">When private work outruns public time</h3></div><span class="chart-unit" data-i18n="chart.unit">probability</span></div>
-              <div class="chart-wrap"><div class="y-labels"><span>40%</span><span>30%</span><span>20%</span><span>10%</span><span>0%</span></div><div class="chart" id="attack-chart"><div class="chart-grid"><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 720 260" preserveAspectRatio="none" aria-label="Fork attack success rate chart"><path id="chart-area" d=""></path><path id="chart-line" d=""></path><g id="chart-points"></g></svg><div class="x-labels"><span>10%</span><span>20%</span><span>30%</span><span>40%</span></div></div></div>
-            </div>
-            <aside class="insight-panel"><span class="panel-kicker" data-i18n="insight.kicker">READOUT / 01</span><h3 id="insight-title" data-i18n="insight.title">Propagation is the variable.</h3><p id="insight-copy" data-i18n="insight.copy">With the same PoW rule, a delayed view of the chain creates room for competing tips. The Tick model makes that room measurable.</p><div class="insight-line"><span></span><b id="insight-value">29.83%</b><small data-i18n="insight.valueText">success at 40% malicious rate</small></div></aside>
+          <div class="section-heading compact-heading"><div><p class="eyebrow">02 / <span data-i18n="experiments.kicker">experiment families</span></p><h2 data-i18n="experiments.title">Three lenses.<br /><span>one proof rule.</span></h2></div><span class="data-note" data-i18n="experiments.sample">representative runs / seed 42</span></div>
+          <div class="experiment-families" id="data">
+            <article class="experiment-family family-blocks"><div class="family-heading"><span class="model-index">01</span><div><span class="panel-kicker" data-i18n="family.blocks.kicker">BLOCKS / FORKS</span><h3 data-i18n="family.blocks.title">From a clean tip to a crowded DAG</h3></div></div><p data-i18n="family.blocks.copy">Tick advances in synchronized rounds; Routine mines continuously and sleeps 500 μs after a failed attempt.</p><div class="comparison-table"><div class="table-head"><span data-i18n="table.setup">setup</span><span data-i18n="table.result">result</span></div><div><span>Tick · 100 nodes · d 0.001</span><b>10.90 ticks / block</b></div><div><span>Routine · 5 nodes · d 0.005 · ρ 0.30</span><b>31 blocks · 1 fork</b></div><div><span>Routine · 20 nodes · d 0.005 · ρ 0.60</span><b>60 blocks · 8 forks</b></div></div></article>
+            <article class="experiment-family family-selfish"><div class="family-heading"><span class="model-index">02</span><div><span class="panel-kicker" data-i18n="family.selfish.kicker">SELFISH MINING</span><h3 data-i18n="family.selfish.title">Private blocks, public revenue</h3></div></div><p data-i18n="family.selfish.copy">A miner withholds work, then releases it when the private lead is valuable.</p><div class="comparison-table"><div class="table-head"><span data-i18n="table.setup">setup</span><span data-i18n="table.result">profitability</span></div><div><span>10% malicious · 100 nodes</span><b>3.64%</b></div><div><span>30% malicious · 50 nodes</span><b>22.24%</b></div><div><span>40% malicious · 100 nodes</span><b>55.09%</b></div></div></article>
+            <article class="experiment-family family-attack"><div class="family-heading"><span class="model-index">03</span><div><span class="panel-kicker" data-i18n="family.attack.kicker">FORK ATTACK</span><h3 data-i18n="family.attack.title">Can a private branch catch up?</h3></div></div><p data-i18n="family.attack.copy">The attacker mines privately while honest miners extend the public branch.</p><div class="comparison-table"><div class="table-head"><span data-i18n="table.setup">setup</span><span data-i18n="table.result">success rate</span></div><div><span>10% malicious · 100 nodes</span><b>0.03%</b></div><div><span>30% malicious · 50 nodes</span><b>7.52%</b></div><div><span>40% malicious · 100 nodes</span><b>29.83%</b></div></div></article>
           </div>
         </section>
 
@@ -123,7 +107,7 @@
           <div class="architecture-layout"><div class="flow-diagram"><div class="flow-node"><b>01</b><strong data-i18n="architecture.mine">mine</strong><small data-i18n="architecture.mineText">probability × hash power</small></div><span class="flow-arrow">→</span><div class="flow-node"><b>02</b><strong data-i18n="architecture.propagate">propagate</strong><small data-i18n="architecture.propagateText">delay or TCP gossip</small></div><span class="flow-arrow">→</span><div class="flow-node"><b>03</b><strong data-i18n="architecture.reconcile">reconcile</strong><small data-i18n="architecture.reconcileText">highest visible tip wins</small></div></div><div class="code-note"><span class="mono">MODEL / POW</span><code>Difficulty × HashPower</code><p data-i18n="architecture.note">Both branches share the same probability rule. Only the clock, transport and observability layer change.</p></div></div>
         </section>
 
-        <section class="footer-cta"><div><p class="eyebrow" data-i18n="footer.kicker">run the experiment</p><h2 data-i18n="footer.title">Make the network<br /><em>show its work.</em></h2></div><div class="cta-actions"><a class="button button-primary" href="https://github.com/StellaShiina/pow-simulator" target="_blank" rel="noreferrer" data-i18n="footer.repository">Open repository <span>↗</span></a><a class="button button-quiet" id="download-data" href="#" data-i18n="footer.download">Download sample JSON <span>↓</span></a></div></section>
+        <section class="footer-cta"><div><p class="eyebrow" data-i18n="footer.kicker">run the experiment</p><h2 data-i18n="footer.title">Make the network<br /><em>show its work.</em></h2></div><div class="cta-actions"><a class="button button-primary" href="https://github.com/StellaShiina/pow-simulator" target="_blank" rel="noreferrer" data-i18n="footer.repository">Open repository <span>↗</span></a><a class="button button-quiet" id="download-data" href="./data/routine-example.log" download="pow-simulator-routine-example.log" data-i18n="footer.download">Download Routine example log <span>↓</span></a></div></section>
       </main>
       <footer class="footer"><span>PoW SIMULATOR / 2026</span><span data-i18n="footer.tagline">DISCRETE + CONTINUOUS / OBSERVE THE DIFFERENCE</span><span data-i18n="footer.built">BUILT FOR EXPERIMENTS</span></footer>
     </div>

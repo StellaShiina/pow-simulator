@@ -1,0 +1,351 @@
+============================================================
+      PoW ROUTINE SIMULATION REPORT
+============================================================
+
+--- PARAMETERS ---
+  Nodes:              10
+  Difficulty:         0.001000
+  Density:            0.20
+  Target Height:      100
+  Seed:               42
+  Run Time:           10.22 seconds
+
+--- OVERVIEW ---
+  Genesis Hash:       0d8b305686468bce
+  Total Blocks:       84 (excl. genesis)
+  Total Forks:        1
+  Longest Chain:      83 blocks
+  Active Tips:        2
+  Average Block Rate: 8.22 blocks/sec
+
+--- PER-NODE MINING STATS ---
+  NODE   | BLOCKS MINED   | SHARE 
+  ----------------------------------------
+  3      | 11             |  12.9%
+  6      | 11             |  12.9%
+  7      | 10             |  11.8%
+  2      | 10             |  11.8%
+  8      | 9              |  10.6%
+  9      | 8              |   9.4%
+  1      | 8              |   9.4%
+  0      | 7              |   8.2%
+  4      | 7              |   8.2%
+  5      | 3              |   3.5%
+
+--- LONGEST CHAIN (84 blocks, tip by miner 3) ---
+  HEIGHT | MINER  | SEQ    | HASH               | PREV HASH         
+  --------------------------------------------------------------------
+  0      | -1     | 0      | 0d8b305686468bce   | (genesis)         
+  1      | 5      | 1      | 6244febf14b01e89   | 0d8b305686468bce  
+  2      | 0      | 2      | 48dc24fbe2c8f861   | 6244febf14b01e89  
+  3      | 6      | 3      | a77aa895394643e7   | 48dc24fbe2c8f861  
+  4      | 0      | 4      | b8e8efc9d51c6ca0   | a77aa895394643e7  
+  5      | 2      | 5      | c4691a1f6e8e0866   | b8e8efc9d51c6ca0  
+  6      | 8      | 6      | 18313a2b7ef88668   | c4691a1f6e8e0866  
+  7      | 0      | 7      | d496be57582e4f6d   | 18313a2b7ef88668  
+  8      | 3      | 8      | 6721bf87b3268c2d   | d496be57582e4f6d  
+  9      | 2      | 9      | d2cb2dca637883db   | 6721bf87b3268c2d  
+  10     | 7      | 10     | 9292c81f9ae6aa8d   | d2cb2dca637883db  
+  11     | 9      | 11     | 2ffa2f24f77b7968   | 9292c81f9ae6aa8d  
+  12     | 0      | 12     | e12038c656e02bfc   | 2ffa2f24f77b7968  
+  13     | 5      | 13     | b02c63c195780171   | e12038c656e02bfc  
+  14     | 4      | 14     | b84c045180ad110a   | b02c63c195780171  
+  15     | 2      | 15     | 8d16dc47b49408ec   | b84c045180ad110a  
+  16     | 8      | 16     | ed94c177e20ce284   | 8d16dc47b49408ec  
+  17     | 7      | 17     | f4c74dcd5845de69   | ed94c177e20ce284  
+  18     | 9      | 18     | 686ace3c1316f0cc   | f4c74dcd5845de69  
+  19     | 4      | 19     | 1a176b9524b4cf16   | 686ace3c1316f0cc  
+  20     | 7      | 20     | 7c09b97e2e8f369a   | 1a176b9524b4cf16  
+  21     | 3      | 21     | 613ef04387e1ba11   | 7c09b97e2e8f369a  
+  22     | 6      | 22     | 36b325ed6e7a04c0   | 613ef04387e1ba11  
+  23     | 6      | 23     | 27504740d08bc3c7   | 36b325ed6e7a04c0  
+  24     | 8      | 24     | a75aa6f105dec6a2   | 27504740d08bc3c7  
+  25     | 6      | 25     | 9c1ad1ccd7bcbeec   | a75aa6f105dec6a2  
+  26     | 6      | 26     | a6905cf4d356b28b   | 9c1ad1ccd7bcbeec  
+  27     | 1      | 27     | 5e8a69d5bffbc758   | a6905cf4d356b28b  
+  28     | 9      | 28     | c9f71be901d854ad   | 5e8a69d5bffbc758  
+  29     | 7      | 29     | 3b7f2dace4db12d2   | c9f71be901d854ad  
+  30     | 1      | 30     | ba44b76ab6046110   | 3b7f2dace4db12d2  
+  31     | 3      | 31     | 0e8af8d5b5e1fba5   | ba44b76ab6046110  
+  32     | 7      | 32     | 8ab48ab87677861b   | 0e8af8d5b5e1fba5  
+  33     | 4      | 33     | a690d83142e955bb   | 8ab48ab87677861b  
+  34     | 0      | 34     | c0ffe5997bac71e9   | a690d83142e955bb  
+  35     | 9      | 35     | 0816a14889fedf86   | c0ffe5997bac71e9  
+  36     | 7      | 36     | 10737ceb0ff15b03   | 0816a14889fedf86  
+  37     | 1      | 37     | 5cbb35c6aedb26f7   | 10737ceb0ff15b03  
+  38     | 6      | 38     | b4132d39fdea932c   | 5cbb35c6aedb26f7  
+  39     | 6      | 39     | 7d0925fced90b09d   | b4132d39fdea932c  
+  40     | 3      | 40     | 12886c0c922e8b95   | 7d0925fced90b09d  
+  41     | 1      | 41     | 704d6881873774a9   | 12886c0c922e8b95  
+  42     | 3      | 42     | a64deb616b566374   | 704d6881873774a9  
+  43     | 8      | 43     | 5d86edea4e6d5839   | a64deb616b566374  
+  44     | 3      | 44     | c152f4c5714f1b8f   | 5d86edea4e6d5839  
+  45     | 8      | 45     | 0fefbefe40495c35   | c152f4c5714f1b8f  
+  46     | 4      | 46     | 1f840bdbbd561520   | 0fefbefe40495c35  
+  47     | 9      | 47     | d0bd02c2838ff9b1   | 1f840bdbbd561520  
+  48     | 2      | 48     | c13f26d096575a80   | d0bd02c2838ff9b1  
+  49     | 2      | 49     | 9f5b2b1e272d8758   | c13f26d096575a80  
+  50     | 1      | 50     | 8bcc1316470fb0fb   | 9f5b2b1e272d8758  
+  51     | 2      | 51     | e2b5d18fea2fd0e0   | 8bcc1316470fb0fb  
+  52     | 8      | 52     | 4851f7a729ef48c3   | e2b5d18fea2fd0e0  
+  53     | 2      | 53     | d861ca98d39d2400   | 4851f7a729ef48c3  
+  54     | 3      | 54     | 8fb44238f85a0e7d   | d861ca98d39d2400  
+  55     | 9      | 55     | d4f5380a68ae3349   | 8fb44238f85a0e7d  
+  56     | 1      | 56     | 98d4bb5749bfd818   | d4f5380a68ae3349  
+  57     | 6      | 57     | d84bb8863d0bd7b5   | 98d4bb5749bfd818  
+  58     | 3      | 58     | 0e57f0d5d5a79cba   | d84bb8863d0bd7b5  
+  59     | 8      | 59     | 5a589be099be59a6   | 0e57f0d5d5a79cba  
+  60     | 7      | 60     | a8773f35403f4d56   | 5a589be099be59a6  
+  61     | 9      | 61     | 2559331b4c433508   | a8773f35403f4d56  
+  62     | 6      | 62     | 9779f07c8d938ec5   | 2559331b4c433508  
+  63     | 1      | 63     | 09e2a2938e24ca08   | 9779f07c8d938ec5  
+  64     | 1      | 64     | 12a85bafdf08a335   | 09e2a2938e24ca08  
+  65     | 6      | 65     | b8f9c4716d53eac0   | 12a85bafdf08a335  
+  66     | 0      | 66     | 8fe882beb3a88d23   | b8f9c4716d53eac0  
+  67     | 4      | 67     | 509b634e536da186   | 8fe882beb3a88d23  
+  68     | 9      | 68     | 28ce30b079c2eb01   | 509b634e536da186  
+  69     | 8      | 69     | e40f407ddd802ae3   | 28ce30b079c2eb01  
+  70     | 2      | 70     | 39024d8795b36869   | e40f407ddd802ae3  
+  71     | 7      | 71     | 105f2fcdb657c388   | 39024d8795b36869  
+  72     | 2      | 72     | 5462baeda022fd60   | 105f2fcdb657c388  
+  73     | 5      | 73     | 2b6e6caeb7769d70   | 5462baeda022fd60  
+  74     | 3      | 74     | 83a8731b3ebfb16a   | 2b6e6caeb7769d70  
+  75     | 7      | 75     | f2db15ef3f70b54a   | 83a8731b3ebfb16a  
+  76     | 4      | 76     | 250014be3ff748d8   | f2db15ef3f70b54a  
+  77     | 6      | 77     | 413de506508f3543   | 250014be3ff748d8  
+  78     | 2      | 78     | 28aa76be4f8f7413   | 413de506508f3543  
+  79     | 0      | 79     | 162b0c6e9a1a30e9   | 28aa76be4f8f7413  
+  80     | 3      | 80     | fcdbbc62b451a80a   | 162b0c6e9a1a30e9  
+  81     | 8      | 81     | 273c6a753e7ef723   | fcdbbc62b451a80a  
+  82     | 7      | 82     | c9e280b09c34e0a7   | 273c6a753e7ef723  
+  83     | 3      | 83     | ab8d8fccd7b37d82   | c9e280b09c34e0a7  
+
+--- ALL TIPS (2 forks) ---
+  TIP#   | HEIGHT | MINER  | LENGTH | HASH              
+  ----------------------------------------------------------
+  0      | 83     | 3      | 83     | ab8d8fccd7b37d82    ← longest
+  1      | 70     | 4      | 70     | e6049eea08122abc  
+
+--- FORK ANALYSIS ---
+  HEIGHT | BLOCKS | MINERS            
+  ------------------------------------------------
+  0      | 1      | [-1]              
+  1      | 1      | [5]               
+  2      | 1      | [0]               
+  3      | 1      | [6]               
+  4      | 1      | [0]               
+  5      | 1      | [2]               
+  6      | 1      | [8]               
+  7      | 1      | [0]               
+  8      | 1      | [3]               
+  9      | 1      | [2]               
+  10     | 1      | [7]               
+  11     | 1      | [9]               
+  12     | 1      | [0]               
+  13     | 1      | [5]               
+  14     | 1      | [4]               
+  15     | 1      | [2]               
+  16     | 1      | [8]               
+  17     | 1      | [7]               
+  18     | 1      | [9]               
+  19     | 1      | [4]               
+  20     | 1      | [7]               
+  21     | 1      | [3]               
+  22     | 1      | [6]               
+  23     | 1      | [6]               
+  24     | 1      | [8]               
+  25     | 1      | [6]               
+  26     | 1      | [6]               
+  27     | 1      | [1]               
+  28     | 1      | [9]               
+  29     | 1      | [7]               
+  30     | 1      | [1]               
+  31     | 1      | [3]               
+  32     | 1      | [7]               
+  33     | 1      | [4]               
+  34     | 1      | [0]               
+  35     | 1      | [9]               
+  36     | 1      | [7]               
+  37     | 1      | [1]               
+  38     | 1      | [6]               
+  39     | 1      | [6]               
+  40     | 1      | [3]               
+  41     | 1      | [1]               
+  42     | 1      | [3]               
+  43     | 1      | [8]               
+  44     | 1      | [3]               
+  45     | 1      | [8]               
+  46     | 1      | [4]               
+  47     | 1      | [9]               
+  48     | 1      | [2]               
+  49     | 1      | [2]               
+  50     | 1      | [1]               
+  51     | 1      | [2]               
+  52     | 1      | [8]               
+  53     | 1      | [2]               
+  54     | 1      | [3]               
+  55     | 1      | [9]               
+  56     | 1      | [1]               
+  57     | 1      | [6]               
+  58     | 1      | [3]               
+  59     | 1      | [8]               
+  60     | 1      | [7]               
+  61     | 1      | [9]               
+  62     | 1      | [6]               
+  63     | 1      | [1]               
+  64     | 1      | [1]               
+  65     | 1      | [6]               
+  66     | 1      | [0]               
+  67     | 1      | [4]               
+  68     | 1      | [9]               
+  69     | 1      | [8]               
+  70     | 2      | [2 4]               ← FORK
+  71     | 1      | [7]               
+  72     | 1      | [2]               
+  73     | 1      | [5]               
+  74     | 1      | [3]               
+  75     | 1      | [7]               
+  76     | 1      | [4]               
+  77     | 1      | [6]               
+  78     | 1      | [2]               
+  79     | 1      | [0]               
+  80     | 1      | [3]               
+  81     | 1      | [8]               
+  82     | 1      | [7]               
+  83     | 1      | [3]               
+
+--- CHAIN DAG (Simplified Tree View) ---
+  Each row: [HEIGHT] HASH.. (MINER) +childCount
+
+[*] 0d8b305686468bce | H=0 M=-1 | children=1
+  [*] 6244febf14b01e89 | H=1 M=5 | children=1
+    [*] 48dc24fbe2c8f861 | H=2 M=0 | children=1
+      [*] a77aa895394643e7 | H=3 M=6 | children=1
+        [*] b8e8efc9d51c6ca0 | H=4 M=0 | children=1
+          [*] c4691a1f6e8e0866 | H=5 M=2 | children=1
+            [*] 18313a2b7ef88668 | H=6 M=8 | children=1
+              [*] d496be57582e4f6d | H=7 M=0 | children=1
+                [*] 6721bf87b3268c2d | H=8 M=3 | children=1
+                  [*] d2cb2dca637883db | H=9 M=2 | children=1
+                    [*] 9292c81f9ae6aa8d | H=10 M=7 | children=1
+                      [*] 2ffa2f24f77b7968 | H=11 M=9 | children=1
+                        [*] e12038c656e02bfc | H=12 M=0 | children=1
+                          [*] b02c63c195780171 | H=13 M=5 | children=1
+                            [*] b84c045180ad110a | H=14 M=4 | children=1
+                              [*] 8d16dc47b49408ec | H=15 M=2 | children=1
+                                [*] ed94c177e20ce284 | H=16 M=8 | children=1
+                                  [*] f4c74dcd5845de69 | H=17 M=7 | children=1
+                                    [*] 686ace3c1316f0cc | H=18 M=9 | children=1
+                                      [*] 1a176b9524b4cf16 | H=19 M=4 | children=1
+                                        [*] 7c09b97e2e8f369a | H=20 M=7 | children=1
+                                          [*] 613ef04387e1ba11 | H=21 M=3 | children=1
+                                            [*] 36b325ed6e7a04c0 | H=22 M=6 | children=1
+                                              [*] 27504740d08bc3c7 | H=23 M=6 | children=1
+                                                [*] a75aa6f105dec6a2 | H=24 M=8 | children=1
+                                                  [*] 9c1ad1ccd7bcbeec | H=25 M=6 | children=1
+                                                    [*] a6905cf4d356b28b | H=26 M=6 | children=1
+                                                      [*] 5e8a69d5bffbc758 | H=27 M=1 | children=1
+                                                        [*] c9f71be901d854ad | H=28 M=9 | children=1
+                                                          [*] 3b7f2dace4db12d2 | H=29 M=7 | children=1
+                                                            [*] ba44b76ab6046110 | H=30 M=1 | children=1
+                                                              [*] 0e8af8d5b5e1fba5 | H=31 M=3 | children=1
+                                                                [*] 8ab48ab87677861b | H=32 M=7 | children=1
+                                                                  [*] a690d83142e955bb | H=33 M=4 | children=1
+                                                                    [*] c0ffe5997bac71e9 | H=34 M=0 | children=1
+                                                                      [*] 0816a14889fedf86 | H=35 M=9 | children=1
+                                                                        [*] 10737ceb0ff15b03 | H=36 M=7 | children=1
+                                                                          [*] 5cbb35c6aedb26f7 | H=37 M=1 | children=1
+                                                                            [*] b4132d39fdea932c | H=38 M=6 | children=1
+                                                                              [*] 7d0925fced90b09d | H=39 M=6 | children=1
+                                                                                [*] 12886c0c922e8b95 | H=40 M=3 | children=1
+                                                                                  [*] 704d6881873774a9 | H=41 M=1 | children=1
+                                                                                    [*] a64deb616b566374 | H=42 M=3 | children=1
+                                                                                      [*] 5d86edea4e6d5839 | H=43 M=8 | children=1
+                                                                                        [*] c152f4c5714f1b8f | H=44 M=3 | children=1
+                                                                                          [*] 0fefbefe40495c35 | H=45 M=8 | children=1
+                                                                                            [*] 1f840bdbbd561520 | H=46 M=4 | children=1
+                                                                                              [*] d0bd02c2838ff9b1 | H=47 M=9 | children=1
+                                                                                                [*] c13f26d096575a80 | H=48 M=2 | children=1
+                                                                                                  [*] 9f5b2b1e272d8758 | H=49 M=2 | children=1
+                                                                                                    [*] 8bcc1316470fb0fb | H=50 M=1 | children=1
+                                                                                                      [*] e2b5d18fea2fd0e0 | H=51 M=2 | children=1
+                                                                                                        [*] 4851f7a729ef48c3 | H=52 M=8 | children=1
+                                                                                                          [*] d861ca98d39d2400 | H=53 M=2 | children=1
+                                                                                                            [*] 8fb44238f85a0e7d | H=54 M=3 | children=1
+                                                                                                              [*] d4f5380a68ae3349 | H=55 M=9 | children=1
+                                                                                                                [*] 98d4bb5749bfd818 | H=56 M=1 | children=1
+                                                                                                                  [*] d84bb8863d0bd7b5 | H=57 M=6 | children=1
+                                                                                                                    [*] 0e57f0d5d5a79cba | H=58 M=3 | children=1
+                                                                                                                      [*] 5a589be099be59a6 | H=59 M=8 | children=1
+                                                                                                                        [*] a8773f35403f4d56 | H=60 M=7 | children=1
+                                                                                                                          [*] 2559331b4c433508 | H=61 M=9 | children=1
+                                                                                                                            [*] 9779f07c8d938ec5 | H=62 M=6 | children=1
+                                                                                                                              [*] 09e2a2938e24ca08 | H=63 M=1 | children=1
+                                                                                                                                [*] 12a85bafdf08a335 | H=64 M=1 | children=1
+                                                                                                                                  [*] b8f9c4716d53eac0 | H=65 M=6 | children=1
+                                                                                                                                    [*] 8fe882beb3a88d23 | H=66 M=0 | children=1
+                                                                                                                                      [*] 509b634e536da186 | H=67 M=4 | children=1
+                                                                                                                                        [*] 28ce30b079c2eb01 | H=68 M=9 | children=1
+                                                                                                                                          [*] e40f407ddd802ae3 | H=69 M=8 | children=2
+                                                                                                                                            [*] 39024d8795b36869 | H=70 M=2 | children=1
+                                                                                                                                              [*] 105f2fcdb657c388 | H=71 M=7 | children=1
+                                                                                                                                                [*] 5462baeda022fd60 | H=72 M=2 | children=1
+                                                                                                                                                  [*] 2b6e6caeb7769d70 | H=73 M=5 | children=1
+                                                                                                                                                    [*] 83a8731b3ebfb16a | H=74 M=3 | children=1
+                                                                                                                                                      [*] f2db15ef3f70b54a | H=75 M=7 | children=1
+                                                                                                                                                        [*] 250014be3ff748d8 | H=76 M=4 | children=1
+                                                                                                                                                          [*] 413de506508f3543 | H=77 M=6 | children=1
+                                                                                                                                                            [*] 28aa76be4f8f7413 | H=78 M=2 | children=1
+                                                                                                                                                              [*] 162b0c6e9a1a30e9 | H=79 M=0 | children=1
+                                                                                                                                                                [*] fcdbbc62b451a80a | H=80 M=3 | children=1
+                                                                                                                                                                  [*] 273c6a753e7ef723 | H=81 M=8 | children=1
+                                                                                                                                                                    [*] c9e280b09c34e0a7 | H=82 M=7 | children=1
+                                                                                                                                                                      [*] ab8d8fccd7b37d82 | H=83 M=3 | TIP
+                                                                                                                                            [ ] e6049eea08122abc | H=70 M=4 | TIP
+
+============================================================
+  Report generated at: 2026-05-28T15:39:04+08:00
+============================================================
+
+============================================================
+      CONNECTION TOPOLOGY REPORT
+============================================================
+
+--- PEER ASSIGNMENTS ---
+  Target peers per node: 2 (density=0.20)
+
+  NODE   | ASSIGNED | TARGET   | PEER LIST                               
+  --------------------------------------------------------------------
+  0      | 2        | 2        | [3 5]                                    ✓
+  1      | 2        | 2        | [4 6]                                    ✓
+  2      | 2        | 2        | [4 0]                                    ✓
+  3      | 2        | 2        | [8 0]                                    ✓
+  4      | 2        | 2        | [0 5]                                    ✓
+  5      | 2        | 2        | [9 4]                                    ✓
+  6      | 2        | 2        | [5 4]                                    ✓
+  7      | 2        | 2        | [0 5]                                    ✓
+  8      | 2        | 2        | [4 6]                                    ✓
+  9      | 2        | 2        | [3 5]                                    ✓
+
+--- DEGREE STATISTICS ---
+  Min degree:  2
+  Max degree:  2
+  Avg degree:  2.0
+  Target:      2
+  Status:      ✓ All nodes meet density target
+
+--- ADJACENCY MATRIX ---
+      0  1  2  3  4  5  6  7  8  9 
+     ------------------------------
+   0 | ·  ·  ·  ●  ·  ●  ·  ·  ·  · 
+   1 | ·  ·  ·  ·  ●  ·  ●  ·  ·  · 
+   2 | ●  ·  ·  ·  ●  ·  ·  ·  ·  · 
+   3 | ●  ·  ·  ·  ·  ·  ·  ·  ●  · 
+   4 | ●  ·  ·  ·  ·  ●  ·  ·  ·  · 
+   5 | ·  ·  ·  ·  ●  ·  ·  ·  ·  ● 
+   6 | ·  ·  ·  ·  ●  ●  ·  ·  ·  · 
+   7 | ●  ·  ·  ·  ·  ●  ·  ·  ·  · 
+   8 | ·  ·  ·  ·  ●  ·  ●  ·  ·  · 
+   9 | ·  ·  ·  ●  ·  ●  ·  ·  ·  · 
+  Legend: ● = connected, · = not connected
+
